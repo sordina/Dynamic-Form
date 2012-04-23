@@ -16,17 +16,21 @@
 	// Use existing schema
 	} else if( settings['schema-object'] ) {
 
-	// Invalid use
+	// Invalid schema
 	} else {
 		$.error("Please provide a schema option when calling dynamicForm")
 	}
 
+	var process = function(element) {
+	}
+
+	// Apply to elements
 	return this.each(function(){
 		var nn = this.nodeName
-		console.log(nn)
 		if( nn != "FORM" ) {
 			$.error("Please use this plugin on a collection of FORM element. You provided a [" + nn + "].")
 		}
+		process($(this))
 	})
 
 }})( jQuery );
