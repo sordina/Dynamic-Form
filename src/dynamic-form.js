@@ -1,7 +1,12 @@
 (function( $ ) {
-  $.fn.dynamicForm = function() {
+	$.fn.dynamicForm = function( options ) {
 
-    // Do your awesome plugin stuff here
+		var settings = $.extend( {
+			'location'         : 'top',
+			'background-color' : 'blue'
+		}, options);
 
-  };
+		return this;
+
+	};
 })( jQuery );
