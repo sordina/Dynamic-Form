@@ -4,13 +4,28 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	
 		<title>Test page for Dynamic-Form</title>
-		<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-git.js"></script>
-		<style type="text/css" href="http://code.jquery.com/qunit/qunit-git.css" />
+
+		<script type="text/javascript" src="qunit-git.js"></script>
+		<link type="text/css" rel="stylesheet" href="qunit-git.css"></link>
+
+		<script type="text/javascript" src="../src/dynamic-form.js"></script>
+
+		<script type="text/javascript" charset="utf-8">
+			test("a basic test example", function() {
+				ok( true, "this test is fine" );
+				var value = "hello";
+				equal( value, "hello", "We expect value to be hello" );
+			});
+		</script>
 
 	</head>
 
 	<body>
-		<h1>Test page for Dynamic-Form</h1>
-		<p> Please enable javascript as this page uses <a href="http://docs.jquery.com/Qunit">QUnit</a> for test-functionality. </p>
+		<h1 id="qunit-header">Test page for Dynamic-Form using <a href="http://docs.jquery.com/Qunit">QUnit</a></h1>
+		<h2 id="qunit-banner"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+		<div id="qunit-fixture">test markup, will be hidden</div>
 	</body>
 </html>
