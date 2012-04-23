@@ -1,15 +1,24 @@
-test("a basic test example", function() {
-	ok( true, "this test is fine" );
-	var value = "hello";
-	equal( value, "hello", "We expect value to be hello" );
-});
+// Using http://docs.jquery.com/QUnit
 
-test("Dynamic Form plugin exists and returns a juqery collection", function(){
-	ok( $("<div />").dynamicForm,               "Plugin exists" )
-	ok( $("<div />").dynamicForm().dynamicForm, "Plugin returns a collection" )
+module("Normal Dynamic Form interactions")
+
+test("Plugin exists", function(){
+	ok( $("<form />").dynamicForm, "Plugin exists" )
 })
 
-/* Test skelleton
-test("", function(){
+test("Plugin returns a jquery collection", function(){
+	ok( $("<form />").dynamicForm({'schema-url' : "http://schema.com"}).dynamicForm, "Plugin returns a jQuery collection" )
 })
-*/
+
+
+module("Dynamic Form interactions that throw errors")
+
+test("Must be called on a form element", function(){
+	var error = function() { $("<div />").dynamicForm() }
+	raises( error, "Plugin must be called on a collection of forms" )
+})
+
+test("Requires a schema", function(){
+	var error = function() { $("<form />").dynamicForm() }
+	raises( error, "Plugin requires a schema or it throws an error" )
+})

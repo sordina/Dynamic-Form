@@ -1,12 +1,32 @@
-(function( $ ) {
-	$.fn.dynamicForm = function( options ) {
+/*
+ * Resources:
+ *   http://stackoverflow.com/questions/1184624/convert-form-data-to-js-object-with-jquery
+ *
+ */
 
-		var settings = $.extend( {
-			'location'         : 'top',
-			'background-color' : 'blue'
-		}, options);
+; (function( $ ) { $.fn.dynamicForm = function( settings_ ) {
 
-		return this;
+	// Defaults
+	var settings = $.extend( { // 'schema-things'    : 'schema-values'
+	}, settings_ )
 
-	};
-})( jQuery );
+	// Download schema
+	if( settings['schema-url'] ) {
+
+	// Use existing schema
+	} else if( settings['schema-object'] ) {
+
+	// Invalid use
+	} else {
+		$.error("Please provide a schema option when calling dynamicForm")
+	}
+
+	return this.each(function(){
+		var nn = this.nodeName
+		console.log(nn)
+		if( nn != "FORM" ) {
+			$.error("Please use this plugin on a collection of FORM element. You provided a [" + nn + "].")
+		}
+	})
+
+}})( jQuery );

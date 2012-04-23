@@ -15,5 +15,5 @@ In your head section:
 
     // Use the plugin
     <script type="text/javascript">
-      $("#my-form").dynamicForm()
+      $("#my-form").dynamicForm({ schema : "http://sordina.net/data-schemas/animal.schema.json" })
     </script>
